@@ -13,7 +13,7 @@ python DAG_runner.py DAG_1.json
 ```
 You can also replace DAG_1.json with any path to a DAG in json format.
 
-3. [optional] To see the time elapsed between node values as they print out, uncomment out lines 28 and 36 and run step 2 again. Note that uncommenting these lines out will make one of the unit tests fail since the unit test checks the console output.
+3. [optional] To see the time elapsed between node values as they print out, uncomment out lines 28 and 36  in `DAG_runner.py` and run step 2 again. Note that uncommenting these lines out will make one of the unit tests fail since the unit test checks the console output.
 
 ## How to run tests
 1. Run `pytest`. There are currently 3 unit tests: 2 from `untils_test.py` and 1 from `DAG_runner_test.py`.
