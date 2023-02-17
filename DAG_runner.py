@@ -16,12 +16,22 @@ def main(args):
     # Pass a json file as an argument. This will be converted to a dict.
     DAG_dict=json_to_dict_converter(args[0])
 
-    def wait_then_travel(next_node_name, wait_time):
+    def wait_then_travel(next_node_name: str, wait_time: int):
+        """
+            This function pauses on the current thread it is on for the given wait time.
+            It then gets the next node from the DAG_dict and invokes visit().
+        """
         time.sleep(wait_time)
         next_node_info = DAG_dict.get(next_node_name)
         visit_node(next_node_name, next_node_info)
 
     def visit_node(node_name: str, node_info: dict[str,dict]):
+        """
+            This function checks if the current node has been visited before. If not, it
+            prints the node name and flags the node as being visited. It then invokes
+            wait_then_travel() on all the edges connected to the current node and has them
+            each run on a new thread.
+        """
         if node_info.get("visited") != True:
             print(node_name)
             # Uncomment below line to see time elapsed from when the first values prints
